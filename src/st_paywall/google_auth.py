@@ -54,7 +54,7 @@ def markdown_button(
             font-weight: 400;
             padding: 0.25rem 0.75rem;
             border-radius: 0.25rem;
-            margin: 5px;
+            margin: 0px;
             line-height: 1.6;
             width: auto;
             user-select: none;
@@ -110,7 +110,7 @@ def get_logged_in_user_email() -> Optional[str]:
         return None
 
     user_info = decode_user(token=token_from_params["id_token"])
-
+    print("user_info", user_info)
     st.session_state["email"] = user_info["email"]
 
     return user_info["email"]

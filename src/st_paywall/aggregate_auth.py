@@ -11,7 +11,8 @@ def add_auth(
     login_button_text: str = "Login with Google",
     login_button_color: str = "#FD504D",
     login_sidebar: bool = True,
-    subscribe_now_sidebar: bool = True
+    subscribe_now_sidebar: bool = True,
+    on_login = None
 
 ):
     if required:
@@ -27,6 +28,7 @@ def add_auth(
             login_sidebar=login_sidebar,
             subscribe_now_sidebar=subscribe_now_sidebar,
             login_button_color=login_button_color,
+            on_login=on_login
         )
 
 
@@ -72,7 +74,8 @@ def optional_auth(
     login_button_text: str = "Login with Google",
     login_button_color: str = "#FD504D",
     login_sidebar: bool = True,
-    subscribe_now_sidebar: bool = True
+    subscribe_now_sidebar: bool = True,
+    on_login = None
 ):
     user_email = get_logged_in_user_email()
     if payment_provider == "stripe":
@@ -98,6 +101,7 @@ def optional_auth(
         )
         st.sidebar.markdown("")
         st.session_state.user_subscribed = False
+        on_login()
 
     elif is_subscriber:
         st.session_state.user_subscribed = True
