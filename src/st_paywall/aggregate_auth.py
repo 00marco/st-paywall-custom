@@ -89,10 +89,10 @@ def optional_auth(
         st.session_state.email = ""
         st.sidebar.markdown("")
 
-    if not is_subscriber:
+    if not is_subscriber and user_email:
         redirect_button(
             text="Subscribe now!", 
-            customer_email="", 
+            customer_email=user_email, 
             payment_provider=payment_provider,
             sidebar=subscribe_now_sidebar
         )
