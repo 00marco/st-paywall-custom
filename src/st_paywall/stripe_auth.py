@@ -38,7 +38,7 @@ def redirect_button(
     markdown = st.sidebar.markdown if sidebar else st.markdown
     markdown(
         f"""
-    <a href="{button_url}" target="_blank">
+    <a href="{button_url}" target="_self">
         <div style="
             display: inline-flex;
             -webkit-box-align: center;
